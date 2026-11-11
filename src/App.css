@@ -1,0 +1,846 @@
+/* ===== Font from Google Fonts ===== */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap');
+
+/* ===== Colors for each theme ===== */
+.App[data-theme="light"] {
+  --bg: #f5f6fa;
+  --box: #ffffff;
+  --text: #161a23;
+  --muted: #6b7280;
+  --border: #e6e8ef;
+  --input: #f8f9fc;
+  --shadow: 0 8px 24px rgba(22, 26, 35, 0.08);
+}
+
+.App[data-theme="dark"] {
+  --bg: #0f1117;
+  --box: #181b24;
+  --text: #f2f3f7;
+  --muted: #9aa1b1;
+  --border: #272b37;
+  --input: #11131a;
+  --shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+}
+
+/* same in both themes */
+.App {
+  --accent: #ff5e3a;
+  --accent2: #ff9a3c;
+  --gradient: linear-gradient(135deg, var(--accent), var(--accent2));
+  --dark: #12141b;
+  --green: #30a46c;
+  --red: #e5484d;
+  --blue: #3b82f6;
+}
+
+/* ===== General ===== */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+.App {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  font-family: 'Poppins', Arial, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  transition: background 0.3s, color 0.3s;
+}
+
+.content {
+  flex: 1;
+  width: 100%;
+  max-width: 1150px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  animation: fadeIn 0.4s ease;
+}
+
+/* every page fades in a little */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+h1 {
+  margin-top: 0;
+  font-size: 36px;
+  font-weight: 700;
+}
+
+h2 {
+  margin-top: 0;
+}
+
+p {
+  line-height: 1.6;
+}
+
+.muted {
+  color: var(--muted);
+  margin: 4px 0;
+}
+
+.center {
+  text-align: center;
+}
+
+.page-header {
+  margin-bottom: 28px;
+}
+
+.section {
+  margin-top: 50px;
+}
+
+.section-title {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.see-all {
+  color: var(--accent);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+/* ===== Buttons ===== */
+.btn {
+  display: inline-block;
+  background: var(--gradient);
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 10px;
+  font-family: inherit;
+  font-size: 15px;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  box-shadow: 0 6px 18px rgba(255, 94, 58, 0.35);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px rgba(255, 94, 58, 0.45);
+}
+
+.btn-outline {
+  background: transparent;
+  color: var(--text);
+  border: 1px solid var(--border);
+  box-shadow: none;
+}
+
+.btn-outline:hover {
+  box-shadow: none;
+  border-color: var(--accent);
+}
+
+/* white-ish button used on the dark hero */
+.btn-light {
+  background: rgba(255, 255, 255, 0.1);
+  box-shadow: none;
+}
+
+.btn-light:hover {
+  background: rgba(255, 255, 255, 0.18);
+  box-shadow: none;
+}
+
+.btn-small {
+  padding: 8px 16px;
+  font-size: 14px;
+}
+
+.buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+/* ===== Navbar ===== */
+.navbar {
+  position: sticky; /* stays at the top when scrolling */
+  top: 0;
+  z-index: 10;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 40px;
+  background: rgba(18, 20, 27, 0.92);
+  backdrop-filter: blur(10px);
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: 800;
+  text-decoration: none;
+  background: var(--gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.nav-links a {
+  color: #c9cdd8;
+  text-decoration: none;
+  font-weight: 500;
+  padding: 8px 14px;
+  border-radius: 8px;
+  transition: background 0.2s, color 0.2s;
+}
+
+.nav-links a:hover {
+  color: white;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+/* NavLink adds the "active" class to the current page */
+.nav-links a.active {
+  color: white;
+  background: var(--gradient);
+}
+
+.theme-btn {
+  margin-left: 10px;
+  background: transparent;
+  color: white;
+  border: 1px solid #3a3f4d;
+  padding: 7px 14px;
+  border-radius: 20px;
+  font-family: inherit;
+  cursor: pointer;
+}
+
+.theme-btn:hover {
+  border-color: var(--accent);
+}
+
+/* the ☰ button is hidden on big screens */
+.menu-btn {
+  display: none;
+  background: transparent;
+  color: white;
+  border: none;
+  font-size: 26px;
+  cursor: pointer;
+}
+
+/* ===== Home: hero ===== */
+.hero {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  flex-wrap: wrap;
+  padding: 44px;
+  border-radius: 24px;
+  background: var(--dark);
+  color: white;
+  box-shadow: var(--shadow);
+}
+
+.hero-text {
+  flex: 1;
+  min-width: 260px;
+}
+
+.eyebrow {
+  display: inline-block;
+  color: var(--accent2);
+  background: rgba(255, 154, 60, 0.12);
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 600;
+  margin-bottom: 16px;
+}
+
+.hero-text h1 {
+  font-size: 46px;
+  line-height: 1.15;
+}
+
+/* the word inside <span> gets the orange gradient */
+.hero-text h1 span {
+  background: var(--gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.hero-text p {
+  color: #b8bdca;
+  font-size: 17px;
+}
+
+.hero-img {
+  flex: 1;
+  min-width: 260px;
+  max-width: 100%;
+  border-radius: 18px;
+}
+
+/* ===== Stat cards ===== */
+.stats {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-bottom: 24px;
+}
+
+.stat {
+  flex: 1;
+  min-width: 170px;
+  background: var(--box);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 24px;
+  text-align: center;
+  box-shadow: var(--shadow);
+}
+
+.stat h2 {
+  margin: 0;
+  font-size: 40px;
+  font-weight: 800;
+  background: var(--gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.stat p {
+  margin: 4px 0 0;
+  color: var(--muted);
+}
+
+/* ===== Call to action box ===== */
+.cta {
+  margin-top: 50px;
+  padding: 40px;
+  border-radius: 24px;
+  background: var(--gradient);
+  color: white;
+  text-align: center;
+}
+
+.cta .btn {
+  background: white;
+  color: var(--accent);
+  box-shadow: none;
+}
+
+/* ===== Boxes ===== */
+.box {
+  background: var(--box);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 28px;
+  box-shadow: var(--shadow);
+}
+
+.two-columns {
+  display: flex;
+  gap: 24px;
+  flex-wrap: wrap;
+  align-items: flex-start;
+}
+
+.two-columns .box {
+  flex: 1;
+  min-width: 290px;
+}
+
+/* ===== Forms ===== */
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  font-weight: 600;
+  font-size: 14px;
+  margin-top: 14px;
+  margin-bottom: 6px;
+}
+
+input,
+textarea,
+.select {
+  padding: 12px 14px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: var(--input);
+  color: var(--text);
+  font-family: inherit;
+  font-size: 15px;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+textarea {
+  resize: vertical;
+}
+
+/* orange glow when you click inside an input */
+input:focus,
+textarea:focus,
+.select:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(255, 94, 58, 0.18);
+}
+
+.error,
+.success {
+  padding: 10px 14px;
+  border-radius: 10px;
+  margin: 16px 0 0;
+  font-size: 14px;
+}
+
+.error {
+  background: rgba(229, 72, 77, 0.12);
+  color: var(--red);
+}
+
+.success {
+  background: rgba(48, 164, 108, 0.12);
+  color: var(--green);
+}
+
+/* ===== Filter buttons and search ===== */
+.toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-bottom: 24px;
+}
+
+.search {
+  flex: 1;
+  max-width: 340px;
+  min-width: 220px;
+}
+
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.toolbar .filters {
+  margin-bottom: 0;
+}
+
+.filter {
+  background: var(--box);
+  color: var(--text);
+  border: 1px solid var(--border);
+  padding: 7px 16px;
+  border-radius: 20px;
+  font-family: inherit;
+  cursor: pointer;
+  transition: border-color 0.2s;
+}
+
+.filter:hover {
+  border-color: var(--accent);
+}
+
+.filter.active {
+  background: var(--gradient);
+  color: white;
+  border-color: transparent;
+}
+
+/* ===== Tracker list ===== */
+.entry-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.entry-list li {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px;
+  margin-bottom: 10px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  transition: border-color 0.2s;
+}
+
+.entry-list li:hover {
+  border-color: var(--accent);
+}
+
+.entry-text {
+  flex: 1;
+}
+
+.entry-text p {
+  font-size: 13px;
+}
+
+.entry-value {
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+/* colored circle with the first letter of the type */
+.type-dot {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  color: white;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.type-dot.meal {
+  background: var(--green);
+}
+
+.type-dot.exercise {
+  background: var(--accent);
+}
+
+.type-dot.activity {
+  background: var(--blue);
+}
+
+.delete-btn {
+  background: transparent;
+  color: var(--red);
+  border: 1px solid var(--red);
+  border-radius: 8px;
+  width: 32px;
+  height: 32px;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+
+.delete-btn:hover {
+  background: var(--red);
+  color: white;
+}
+
+/* ===== Workout cards ===== */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 24px;
+}
+
+.card {
+  background: var(--box);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  padding: 24px;
+  box-shadow: var(--shadow);
+  transition: transform 0.25s, box-shadow 0.25s;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 32px rgba(255, 94, 58, 0.18);
+}
+
+.workout-card {
+  border-top: 4px solid var(--accent);
+}
+
+.workout-card h3 {
+  margin: 14px 0 10px;
+}
+
+.workout-info {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  color: var(--muted);
+  font-size: 14px;
+  margin-bottom: 18px;
+}
+
+.tag {
+  display: inline-block;
+  background: rgba(255, 94, 58, 0.12);
+  color: var(--accent);
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+/* ===== Workout details (dynamic page) ===== */
+.back-link {
+  display: inline-block;
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+.details-header {
+  background: var(--dark);
+  color: white;
+  border-radius: 24px;
+  padding: 40px;
+  margin-bottom: 24px;
+}
+
+.details-header h1 {
+  margin: 14px 0 8px;
+}
+
+.details-header p {
+  color: #b8bdca;
+  max-width: 650px;
+}
+
+.workout-info.big {
+  color: white;
+  font-size: 16px;
+  gap: 24px;
+  margin: 18px 0 0;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.table th {
+  background: var(--dark);
+  color: white;
+  text-align: left;
+  padding: 14px;
+  font-weight: 600;
+}
+
+.table td {
+  padding: 14px;
+  border-bottom: 1px solid var(--border);
+}
+
+.table tbody tr:hover {
+  background: rgba(255, 94, 58, 0.06);
+}
+
+/* ===== Features page ===== */
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 24px;
+}
+
+.feature {
+  background: var(--box);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  padding: 28px;
+  box-shadow: var(--shadow);
+  transition: transform 0.25s, border-color 0.25s;
+}
+
+.feature:hover {
+  transform: translateY(-6px);
+  border-color: var(--accent);
+}
+
+.feature-icon {
+  width: 56px;
+  height: 56px;
+  border-radius: 14px;
+  background: rgba(255, 94, 58, 0.12);
+  font-size: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ===== About page ===== */
+.steps {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 24px;
+}
+
+.step {
+  text-align: center;
+  background: var(--box);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  padding: 28px;
+  box-shadow: var(--shadow);
+}
+
+.step-number {
+  width: 52px;
+  height: 52px;
+  margin: 0 auto 10px;
+  border-radius: 50%;
+  background: var(--gradient);
+  color: white;
+  font-size: 22px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+h2.section-title.center {
+  margin-top: 50px;
+}
+
+/* ===== Contact page ===== */
+.contact-info {
+  background: var(--dark);
+  color: white;
+}
+
+.contact-info p {
+  color: #c9cdd8;
+}
+
+/* ===== 404 page ===== */
+.big-404 {
+  font-size: 110px;
+  margin: 0;
+  background: var(--gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* ===== Footer ===== */
+.footer {
+  background: var(--dark);
+  color: #8b91a1;
+  padding: 36px 40px 20px;
+}
+
+.footer-inner {
+  max-width: 1110px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.footer-logo {
+  margin: 0;
+  color: white;
+}
+
+.footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  align-items: center;
+}
+
+.footer-links a {
+  color: #c9cdd8;
+  text-decoration: none;
+}
+
+.footer-links a:hover {
+  color: var(--accent);
+}
+
+.copyright {
+  text-align: center;
+  border-top: 1px solid #262a35;
+  margin: 24px 0 0;
+  padding-top: 16px;
+  font-size: 14px;
+}
+
+/* ===== Small screens (tablets and phones) ===== */
+@media (max-width: 900px) {
+  .navbar {
+    padding: 14px 20px;
+    flex-wrap: wrap;
+  }
+
+  /* show the ☰ button */
+  .menu-btn {
+    display: block;
+  }
+
+  /* hide the links until the menu is opened */
+  .nav-links {
+    display: none;
+    width: 100%;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 4px;
+    padding-top: 12px;
+  }
+
+  .nav-links.open {
+    display: flex;
+  }
+
+  .theme-btn {
+    margin: 8px 0 0;
+  }
+
+  .hero,
+  .details-header,
+  .cta {
+    padding: 26px;
+  }
+
+  .hero-text h1 {
+    font-size: 34px;
+  }
+
+  h1 {
+    font-size: 30px;
+  }
+
+  .table th,
+  .table td {
+    padding: 10px 8px;
+    font-size: 14px;
+  }
+}
