@@ -4,7 +4,7 @@ HealthTrack is a personal wellness website built with **ReactJS** for the CSCI42
 
 All the data is saved in the browser with `localStorage`, so the app works without a backend or an account.
 
-**Live demo:** _add your Netlify / Vercel link here_
+**Live demo:** https://healthtrack-1.netlify.app
 **Author:** Ali Mostafa
 
 ---
