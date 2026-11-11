@@ -1,0 +1,93 @@
+[
+  {
+    "id": 1,
+    "name": "Full Body Starter",
+    "category": "Strength",
+    "level": "Beginner",
+    "minutes": 30,
+    "calories": 220,
+    "description": "A simple full body routine for people who are just starting. It trains every big muscle group with easy movements.",
+    "exercises": [
+      { "name": "Bodyweight Squats", "sets": 3, "reps": "12" },
+      { "name": "Push-ups (knees allowed)", "sets": 3, "reps": "10" },
+      { "name": "Glute Bridges", "sets": 3, "reps": "15" },
+      { "name": "Plank", "sets": 3, "reps": "30 sec" }
+    ]
+  },
+  {
+    "id": 2,
+    "name": "Morning Cardio",
+    "category": "Cardio",
+    "level": "Beginner",
+    "minutes": 20,
+    "calories": 180,
+    "description": "A short cardio session to wake up the body and raise the heart rate before the day starts.",
+    "exercises": [
+      { "name": "Jumping Jacks", "sets": 3, "reps": "40 sec" },
+      { "name": "High Knees", "sets": 3, "reps": "30 sec" },
+      { "name": "Butt Kicks", "sets": 3, "reps": "30 sec" },
+      { "name": "Fast Walk in Place", "sets": 1, "reps": "3 min" }
+    ]
+  },
+  {
+    "id": 3,
+    "name": "Fat Burn HIIT",
+    "category": "HIIT",
+    "level": "Intermediate",
+    "minutes": 25,
+    "calories": 320,
+    "description": "High intensity intervals: work hard for 40 seconds, rest for 20 seconds. Great for burning calories in a short time.",
+    "exercises": [
+      { "name": "Burpees", "sets": 4, "reps": "40 sec" },
+      { "name": "Mountain Climbers", "sets": 4, "reps": "40 sec" },
+      { "name": "Jump Squats", "sets": 4, "reps": "40 sec" },
+      { "name": "Skater Jumps", "sets": 4, "reps": "40 sec" }
+    ]
+  },
+  {
+    "id": 4,
+    "name": "Upper Body Power",
+    "category": "Strength",
+    "level": "Advanced",
+    "minutes": 45,
+    "calories": 350,
+    "description": "A gym workout for chest, back, shoulders and arms. Use weights that make the last reps hard.",
+    "exercises": [
+      { "name": "Bench Press", "sets": 4, "reps": "8" },
+      { "name": "Pull-ups", "sets": 4, "reps": "6" },
+      { "name": "Shoulder Press", "sets": 3, "reps": "10" },
+      { "name": "Barbell Rows", "sets": 3, "reps": "10" },
+      { "name": "Biceps Curls", "sets": 3, "reps": "12" }
+    ]
+  },
+  {
+    "id": 5,
+    "name": "Yoga Stretch",
+    "category": "Flexibility",
+    "level": "Beginner",
+    "minutes": 20,
+    "calories": 90,
+    "description": "Slow yoga poses to stretch the body, relax the mind and help recovery after hard training days.",
+    "exercises": [
+      { "name": "Downward Dog", "sets": 1, "reps": "1 min" },
+      { "name": "Cobra Pose", "sets": 2, "reps": "30 sec" },
+      { "name": "Child's Pose", "sets": 1, "reps": "1 min" },
+      { "name": "Seated Forward Bend", "sets": 2, "reps": "45 sec" }
+    ]
+  },
+  {
+    "id": 6,
+    "name": "Leg Day",
+    "category": "Strength",
+    "level": "Intermediate",
+    "minutes": 40,
+    "calories": 300,
+    "description": "Builds strong legs and glutes. Rest 60 to 90 seconds between sets.",
+    "exercises": [
+      { "name": "Barbell Squats", "sets": 4, "reps": "10" },
+      { "name": "Lunges", "sets": 3, "reps": "12 each leg" },
+      { "name": "Leg Press", "sets": 3, "reps": "12" },
+      { "name": "Calf Raises", "sets": 3, "reps": "20" }
+    ]
+  }
+]

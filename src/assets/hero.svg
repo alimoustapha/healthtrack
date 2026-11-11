@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 360" font-family="Poppins, Arial, sans-serif">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ff5e3a"/>
+      <stop offset="1" stop-color="#ff9a3c"/>
+    </linearGradient>
+  </defs>
+  <rect width="520" height="360" rx="22" fill="#1b1e28"/>
+
+  <!-- activity rings -->
+  <g transform="translate(150 180)" fill="none" stroke-linecap="round">
+    <circle r="110" stroke="#2c303c" stroke-width="22"/>
+    <circle r="110" stroke="url(#g)" stroke-width="22" stroke-dasharray="560 691" transform="rotate(-90)"/>
+    <circle r="78" stroke="#2c303c" stroke-width="22"/>
+    <circle r="78" stroke="#30a46c" stroke-width="22" stroke-dasharray="380 490" transform="rotate(-90)"/>
+    <circle r="46" stroke="#2c303c" stroke-width="22"/>
+    <circle r="46" stroke="#3b82f6" stroke-width="22" stroke-dasharray="190 289" transform="rotate(-90)"/>
+  </g>
+
+  <!-- stat rows -->
+  <g transform="translate(300 92)">
+    <rect width="190" height="54" rx="12" fill="#232733"/>
+    <circle cx="26" cy="27" r="9" fill="url(#g)"/>
+    <text x="46" y="23" fill="#9aa1b1" font-size="12">Calories</text>
+    <text x="46" y="42" fill="#ffffff" font-size="17" font-weight="700">1,850 kcal</text>
+
+    <rect y="66" width="190" height="54" rx="12" fill="#232733"/>
+    <circle cx="26" cy="93" r="9" fill="#30a46c"/>
+    <text x="46" y="89" fill="#9aa1b1" font-size="12">Exercise</text>
+    <text x="46" y="108" fill="#ffffff" font-size="17" font-weight="700">45 min</text>
+
+    <rect y="132" width="190" height="54" rx="12" fill="#232733"/>
+    <circle cx="26" cy="159" r="9" fill="#3b82f6"/>
+    <text x="46" y="155" fill="#9aa1b1" font-size="12">Activities</text>
+    <text x="46" y="174" fill="#ffffff" font-size="17" font-weight="700">6 logged</text>
+  </g></svg>
