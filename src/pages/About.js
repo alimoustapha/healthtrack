@@ -1,4 +1,3 @@
-// the 3 steps shown in "How it works"
 const steps = [
   { number: 1, title: "Log", text: "Add your meals, exercise and activities from the Tracker page." },
   { number: 2, title: "Follow", text: "Pick a workout plan and add it to your day with one click." },

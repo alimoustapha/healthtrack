@@ -9,22 +9,19 @@ const Contact = () => {
   const [success, setSuccess] = useState("");
 
   const handleSubmit = (e) => {
-    e.preventDefault(); // stop the page from reloading
+    e.preventDefault();
+    setSuccess("");
 
     if (!name || !email || !subject || !message) {
       setError("Please fill in all the fields.");
-      setSuccess("");
       return;
     }
-    // a simple email check: something@something.something
     if (!/\S+@\S+\.\S+/.test(email)) {
       setError("Please enter a valid email.");
-      setSuccess("");
       return;
     }
     if (message.length < 10) {
       setError("The message must be at least 10 characters.");
-      setSuccess("");
       return;
     }
 

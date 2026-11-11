@@ -2,16 +2,12 @@ import { useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import workouts from '../data/workouts.json';
 
-// this is the dynamic page: the same page shows a different workout for each id
 const WorkoutDetails = () => {
-  // read the id from the link, e.g. /workouts/3 gives id = "3"
   const { id } = useParams();
   const [message, setMessage] = useState("");
 
-  // find the workout with this id (the id in the link is text, so we use Number)
   const workout = workouts.find((w) => w.id === Number(id));
 
-  // if no workout has this id
   if (!workout) {
     return (
       <div className="center">
@@ -21,7 +17,6 @@ const WorkoutDetails = () => {
     );
   }
 
-  // save this workout as an "Exercise" log in the tracker
   const addToTracker = () => {
     const entries = JSON.parse(localStorage.getItem("entries")) || [];
     const newEntry = {

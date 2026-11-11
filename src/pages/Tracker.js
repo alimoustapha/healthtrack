@@ -1,10 +1,8 @@
 import { useState, useEffect } from 'react';
 import StatCard from '../components/StatCard';
 
-// today's date in the form 2026-11-11
 const today = new Date().toLocaleDateString("en-CA");
 
-// example logs, used only the first time (when localStorage is empty)
 const demoEntries = [
   { id: 1, type: "Meal", name: "Oatmeal with banana", value: 350, date: today },
   { id: 2, type: "Exercise", name: "Morning run", value: 30, date: today },
@@ -13,7 +11,6 @@ const demoEntries = [
 ];
 
 const Tracker = () => {
-  // one useState for each input
   const [type, setType] = useState("Meal");
   const [name, setName] = useState("");
   const [value, setValue] = useState("");
@@ -22,43 +19,42 @@ const Tracker = () => {
   const [success, setSuccess] = useState("");
   const [filter, setFilter] = useState("All");
 
-  // read saved logs from localStorage, or use the demo list
   const [entries, setEntries] = useState(
     JSON.parse(localStorage.getItem("entries")) || demoEntries
   );
 
-  // every time entries changes, save it in localStorage
   useEffect(() => {
     localStorage.setItem("entries", JSON.stringify(entries));
   }, [entries]);
 
   const handleSubmit = (e) => {
-    e.preventDefault(); // stop the page from reloading
+    e.preventDefault();
+    setSuccess("");
 
-    // validation
     if (!name || !value || !date) {
       setError("Please fill in all the fields.");
-      setSuccess("");
       return;
     }
     if (value <= 0) {
       setError("The number must be bigger than 0.");
-      setSuccess("");
       return;
     }
     if (type === "Meal" && value > 3000) {
       setError("A meal can't be more than 3000 kcal.");
-      setSuccess("");
       return;
     }
     if (type !== "Meal" && value > 600) {
       setError("Minutes can't be more than 600.");
-      setSuccess("");
       return;
     }
 
-    // Date.now() gives a unique number we use as the id
-    const newEntry = { id: Date.now(), type: type, name: name, value: Number(value), date: date };
+    const newEntry = {
+      id: Date.now(),
+      type: type,
+      name: name,
+      value: Number(value),
+      date: date,
+    };
     setEntries([newEntry, ...entries]);
     setError("");
     setSuccess(`${type} "${name}" was added.`);
@@ -75,12 +71,10 @@ const Tracker = () => {
     setSuccess("");
   };
 
-  // remove one log: keep every entry except the one with this id
   const handleDelete = (id) => {
     setEntries(entries.filter((e) => e.id !== id));
   };
 
-  // numbers for today
   const todayEntries = entries.filter((e) => e.date === today);
   let calories = 0;
   let minutes = 0;
@@ -89,7 +83,6 @@ const Tracker = () => {
     else minutes += e.value;
   });
 
-  // the list below the form, filtered by the chosen button
   const shownEntries = filter === "All" ? entries : entries.filter((e) => e.type === filter);
 
   return (
@@ -106,7 +99,6 @@ const Tracker = () => {
       </div>
 
       <div className="two-columns">
-        {/* the form */}
         <form className="box" onSubmit={handleSubmit}>
           <h2>Add a Log</h2>
 
@@ -137,7 +129,6 @@ const Tracker = () => {
           </div>
         </form>
 
-        {/* the list */}
         <div className="box">
           <h2>My Logs</h2>
 

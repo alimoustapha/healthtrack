@@ -1,16 +1,13 @@
 import { useState } from 'react';
 import { NavLink, Link } from 'react-router-dom';
 
-// theme and setTheme come from App as props
 const Navbar = ({ theme, setTheme }) => {
-  // on phones the menu is hidden until the ☰ button is clicked
   const [menuOpen, setMenuOpen] = useState(false);
 
   const toggleTheme = () => {
     setTheme(theme === "dark" ? "light" : "dark");
   };
 
-  // close the menu after choosing a page
   const closeMenu = () => {
     setMenuOpen(false);
   };
@@ -23,9 +20,7 @@ const Navbar = ({ theme, setTheme }) => {
         {menuOpen ? "✕" : "☰"}
       </button>
 
-      {/* the "open" class shows the links on phones */}
       <div className={menuOpen ? "nav-links open" : "nav-links"}>
-        {/* NavLink adds the "active" class to the current page */}
         <NavLink to="/" onClick={closeMenu}>Home</NavLink>
         <NavLink to="/tracker" onClick={closeMenu}>Tracker</NavLink>
         <NavLink to="/workouts" onClick={closeMenu}>Workouts</NavLink>

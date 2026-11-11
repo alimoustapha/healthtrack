@@ -5,14 +5,11 @@ import WorkoutCard from '../components/WorkoutCard';
 import StatCard from '../components/StatCard';
 
 const Home = () => {
-  // read the saved logs from the Tracker page
   const entries = JSON.parse(localStorage.getItem("entries")) || [];
 
-  // today's date in the form 2026-11-11
   const today = new Date().toLocaleDateString("en-CA");
   const todayEntries = entries.filter((e) => e.date === today);
 
-  // add up today's numbers
   let calories = 0;
   let minutes = 0;
   todayEntries.forEach((e) => {
@@ -20,12 +17,10 @@ const Home = () => {
     else minutes += Number(e.value);
   });
 
-  // show only the first 3 workouts on the home page
   const featured = workouts.slice(0, 3);
 
   return (
     <div>
-      {/* hero section */}
       <section className="hero">
         <div className="hero-text">
           <span className="eyebrow">Your personal wellness tracker</span>
@@ -39,7 +34,6 @@ const Home = () => {
         <img src={hero} alt="daily activity rings" className="hero-img" />
       </section>
 
-      {/* today's summary */}
       <section className="section">
         <h2 className="section-title">Today's Summary</h2>
         <div className="stats">
@@ -49,7 +43,6 @@ const Home = () => {
         </div>
       </section>
 
-      {/* featured workouts */}
       <section className="section">
         <div className="section-header">
           <h2 className="section-title">Popular Workouts</h2>
@@ -70,7 +63,6 @@ const Home = () => {
         </div>
       </section>
 
-      {/* call to action */}
       <section className="cta">
         <h2>Small steps every day make a big difference.</h2>
         <Link to="/tracker" className="btn">Log your first meal</Link>

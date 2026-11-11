@@ -13,7 +13,6 @@ import Contact from './pages/Contact';
 import NotFound from './pages/NotFound';
 
 function App() {
-  // theme state, saved in localStorage so it stays after a refresh
   const [theme, setTheme] = useState(localStorage.getItem("theme") || "light");
 
   useEffect(() => {
@@ -21,10 +20,8 @@ function App() {
   }, [theme]);
 
   return (
-    // data-theme changes the colors in App.css
     <div className="App" data-theme={theme}>
       <Router>
-        {/* send theme and setTheme to Navbar as props */}
         <Navbar theme={theme} setTheme={setTheme} />
 
         <main className="content">
@@ -32,12 +29,10 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/tracker" element={<Tracker />} />
             <Route path="/workouts" element={<Workouts />} />
-            {/* dynamic page: :id changes for each workout */}
             <Route path="/workouts/:id" element={<WorkoutDetails />} />
             <Route path="/features" element={<Features />} />
             <Route path="/about" element={<About />} />
             <Route path="/contact" element={<Contact />} />
-            {/* any other link shows the 404 page */}
             <Route path="*" element={<NotFound />} />
           </Routes>
         </main>

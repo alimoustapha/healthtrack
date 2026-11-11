@@ -6,7 +6,6 @@ const Workouts = () => {
   const [search, setSearch] = useState("");
   const [category, setCategory] = useState("All");
 
-  // keep the workouts that match the search text AND the chosen category
   const shown = workouts.filter((w) => {
     const matchName = w.name.toLowerCase().includes(search.toLowerCase());
     const matchCategory = category === "All" || w.category === category;

@@ -1,6 +1,5 @@
 import { Link } from 'react-router-dom';
 
-// the list of features, shown with .map below
 const features = [
   { icon: "🍎", title: "Meal Logging", text: "Write down what you eat and how many calories it has." },
   { icon: "🏃", title: "Exercise Tracking", text: "Save your workouts and how many minutes you trained." },
