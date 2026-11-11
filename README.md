@@ -4,7 +4,8 @@ HealthTrack is a personal wellness website built with **ReactJS** for the CSCI42
 
 All the data is saved in the browser with `localStorage`, so the app works without a backend or an account.
 
-**Live demo:** _add your Netlify / Vercel link here_
+**Live demo:** https://healthtrack-1.netlify.app  
+**GitHub:** https://github.com/alimoustapha/healthtrack  
 **Author:** Ali Mostafa
 
 ---
@@ -81,8 +82,8 @@ You need **Node.js** (version 18 or newer) installed.
 
 ```bash
 # 1. clone the project
-git clone https://github.com/alimoustapha/<repo-name>.git
-cd <repo-name>
+git clone https://github.com/alimoustapha/healthtrack.git
+cd healthtrack
 
 # 2. install the packages
 npm install
